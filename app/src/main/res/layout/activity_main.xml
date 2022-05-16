@@ -4,15 +4,102 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:id="@+id/clParent"
+    android:layout_gravity="center">
 
-    <TextView
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clUserData"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@id/clParent"
+        app:layout_constraintStart_toStartOf="@id/clParent"
+        app:layout_constraintEnd_toEndOf="@id/clParent"
+        app:layout_constraintBottom_toBottomOf="@id/clParent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clUserName"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/separator">
+
+            <TextView
+                android:id="@+id/lblUserName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Username"
+                app:layout_constraintTop_toTopOf="@id/clUserName"
+                app:layout_constraintBottom_toTopOf="@id/etUserName"/>
+
+            <EditText
+                android:id="@+id/etUserName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:maxLines="1"
+                android:lines="1"
+                android:inputType="textPersonName"
+                android:hint="Username"
+                app:layout_constraintTop_toBottomOf="@id/lblUserName"
+                app:layout_constraintStart_toStartOf="@id/clUserName"
+                app:layout_constraintEnd_toEndOf="@id/clUserName"
+                app:layout_constraintBottom_toBottomOf="@id/clUserName"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <Space
+            android:id="@+id/separator"
+            android:layout_width="250dp"
+            android:layout_height="20dp"
+            app:layout_constraintTop_toBottomOf="@id/clUserName"
+            app:layout_constraintStart_toStartOf="@id/clUserData"
+            app:layout_constraintEnd_toEndOf="@id/clUserData"
+            app:layout_constraintBottom_toTopOf="@id/clUserPassword"/>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clUserPassword"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/separator"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/btnLogin">
+            <TextView
+                android:id="@+id/lblUserPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Password"
+                app:layout_constraintTop_toTopOf="@id/clUserPassword"
+                app:layout_constraintStart_toStartOf="@id/clUserPassword"
+                app:layout_constraintEnd_toEndOf="@id/clUserPassword"
+                app:layout_constraintBottom_toTopOf="@id/etUserPassword"/>
+            <EditText
+                android:id="@+id/etUserPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:maxLines="1"
+                android:lines="1"
+                android:inputType="textPassword"
+                android:hint="Password"
+                app:layout_constraintTop_toBottomOf="@id/lblUserPassword"
+                app:layout_constraintStart_toStartOf="@id/clUserPassword"
+                app:layout_constraintEnd_toEndOf="@id/clUserPassword"
+                app:layout_constraintBottom_toBottomOf="@id/clUserPassword"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <Button
+            android:id="@+id/btnLogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/teal_200"
+            android:text="Login"
+            app:layout_constraintTop_toBottomOf="@id/clUserPassword"
+            app:layout_constraintStart_toStartOf="@id/clUserData"
+            app:layout_constraintEnd_toEndOf="@id/clUserData"
+            app:layout_constraintBottom_toBottomOf="@id/clUserData"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
